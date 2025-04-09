@@ -1,0 +1,4 @@
+pandas==2.2.3
+Pillow==11.1.0
+plotly==5.23.0
+streamlit==1.44.1
