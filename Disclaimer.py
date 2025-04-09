@@ -4,26 +4,23 @@ st.set_page_config(page_title="Chocolate Dashboard", page_icon="🍫")
 
 st.markdown("""
     <style>
-    @font-face {
-        font-family: 'ChunkFive';
-        src: url('/static/chunk.ttf') format('truetype');
-        font-weight: normal;
-        font-style: normal;
-    }
+    @import url('https://fonts.googleapis.com/css2?family=Alfa+Slab+One&display=swap');
 
     html, body, .stApp {
-        font-family: 'ChunkFive', sans-serif !important;
+        font-family: 'Alfa Slab One', sans-serif !important;
     }
 
     .plotly-graph-div * {
-        font-family: 'ChunkFive', sans-serif !important;
+        font-family: 'Alfa Slab One', sans-serif !important;
     }
 
     h1, h2, h3, h4, h5, h6 {
-        font-family: 'ChunkFive', sans-serif !important;
+        font-family: 'Alfa Slab One', sans-serif !important;
+        font-weight: normal !important;
     }
     </style>
 """, unsafe_allow_html=True)
+
 
 st.title("🍫 Welcome to the Chocolate Sales Dashboard - 2023")
 

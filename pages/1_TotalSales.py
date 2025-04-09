@@ -5,23 +5,19 @@ import plotly.express as px
 # Configurar página
 st.set_page_config(page_title="Chocolate Dashboard", page_icon="🍫", layout='wide')
 
-# Inyectar la fuente ChunkFive usando CSS
+# Inyectar la fuente Alfa Slab One desde Google Fonts
 st.markdown("""
     <style>
-    @font-face {
-        font-family: 'ChunkFive';
-        src: url('/static/ChunkFive.woff') format('woff');
-        font-weight: normal;
-        font-style: normal;
-    }
+    @import url('https://fonts.googleapis.com/css2?family=Alfa+Slab+One&display=swap');
 
     body, html, .stApp {
-        font-family: 'ChunkFive', sans-serif !important;
+        font-family: 'Alfa Slab One', sans-serif !important;
         background-color: #fff9f5;
     }
 
     h1, h2, h3, h4, h5, h6, .css-18ni7ap, .css-1d391kg, .plotly-graph-div * {
-        font-family: 'ChunkFive', sans-serif !important;
+        font-family: 'Alfa Slab One', sans-serif !important;
+        font-weight: normal !important;
     }
 
     .block-container {
@@ -41,8 +37,6 @@ df = load_data()
 st.title("🍫 Chocolate Sales Overview")
 
 # ========================== VENTAS POR DÍA DE LA SEMANA ==========================
-#!st.markdown("### 📅 Units Sold by Day of the Week")
-
 days_order = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday']
 weekday_sales = (
     df.groupby('WeekdayName')['UnitsSold']
@@ -72,14 +66,12 @@ fig_week.update_traces(
 fig_week.update_layout(
     plot_bgcolor="#fff9f5",
     paper_bgcolor="#fff9f5",
-    font=dict(family="ChunkFive", color="#000000", size=20),
+    font=dict(family="Alfa Slab One", color="#000000", size=20),
     title_x=0.3,
     title_font=dict(size=28),
     margin=dict(t=60, b=40, l=40, r=40)
 )
 
-# 💬 Mostrar gráfico y tarjeta al lado
-# 💬 Mostrar gráfico y tarjeta al lado (solo una vez, bien decorado)
 col1, col2 = st.columns([3, 2])
 
 with col1:
@@ -94,7 +86,7 @@ with col2:
             color: white;
             padding: 1.5em;
             border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%;
-            font-family: 'ChunkFive', sans-serif;
+            font-family: 'Alfa Slab One', sans-serif;
             font-size: 22px;
             text-align: center;
             box-shadow: -10px 10px 0px 0px white, 5px 5px 15px rgba(0,0,0,0.3);
@@ -122,8 +114,6 @@ with col2:
         </div>
     </div>
     """, unsafe_allow_html=True)
-
-
 
 # ========================== VENTAS POR MES ==========================
 st.markdown("### 📆 Units Sold by Month")
@@ -156,13 +146,12 @@ fig_month.update_traces(
 fig_month.update_layout(
     plot_bgcolor="#fff9f5",
     paper_bgcolor="#fff9f5",
-    font=dict(family="ChunkFive", color="#000000", size=20),
+    font=dict(family="Alfa Slab One", color="#000000", size=20),
     title_x=0.3,
     title_font=dict(size=28),
     margin=dict(t=60, b=40, l=40, r=40)
 )
 
-# 💬 Mostrar gráfico y tarjeta al lado
 col3, col4 = st.columns([3, 2])
 
 with col3:
@@ -177,7 +166,7 @@ with col4:
             color: white;
             padding: 1.5em;
             border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%;
-            font-family: 'ChunkFive', sans-serif;
+            font-family: 'Alfa Slab One', sans-serif;
             font-size: 22px;
             text-align: center;
             box-shadow: -10px 10px 0px 0px white, 5px 5px 15px rgba(0,0,0,0.3);
@@ -205,19 +194,3 @@ with col4:
         </div>
     </div>
     """, unsafe_allow_html=True)
-
-
-
-#!# Simulando el DataFrame
-#!photos = df.groupby(['ProductID','PhotoId'])['CostPerUnit'].mean().reset_index()
-#!
-#!st.title("🍫 Product Catalog")
-#!
-#!# Mostrar 3 productos por fila
-#!cols = st.columns(3)
-#!
-#!for idx, row in photos.iterrows():
-#!    col = cols[idx % 3]  # para ir rotando entre 3 columnas
-#!    with col:
-#!        st.image(f"images/{row['PhotoId']}", caption=f"ID: {row['ProductID']}", use_container_width=True)
-#!        st.markdown(f"<div style='text-align: center; font-family: ChunkFive; font-size: 18px;'>💲 {row['CostPerUnit']:.2f} USD</div>", unsafe_allow_html=True)

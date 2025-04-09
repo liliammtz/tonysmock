@@ -12,20 +12,16 @@ st.set_page_config(page_title="Chocolate Dashboard", page_icon="🍫", layout='w
 # Inyectar la fuente ChunkFive usando CSS
 st.markdown("""
     <style>
-    @font-face {
-        font-family: 'ChunkFive';
-        src: url('/static/ChunkFive.woff') format('woff');
-        font-weight: normal;
-        font-style: normal;
-    }
+    @import url('https://fonts.googleapis.com/css2?family=Alfa+Slab+One&display=swap');
 
     body, html, .stApp {
-        font-family: 'ChunkFive', sans-serif !important;
+        font-family: 'Alfa Slab One', sans-serif !important;
         background-color: #fff9f5;
     }
 
     h1, h2, h3, h4, h5, h6, .css-18ni7ap, .css-1d391kg, .plotly-graph-div * {
-        font-family: 'ChunkFive', sans-serif !important;
+        font-family: 'Alfa Slab One', sans-serif !important;
+        font-weight: normal !important;
     }
 
     .block-container {
@@ -33,6 +29,7 @@ st.markdown("""
     }
     </style>
 """, unsafe_allow_html=True)
+
 
 # Cargar datos
 @st.cache_data
